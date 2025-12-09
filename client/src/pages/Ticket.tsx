@@ -1,13 +1,7 @@
-import React from 'react'
-
-interface Props {}
-
-function Ticket(props: Props) {
-    const {} = props
-
+function Ticket() {
     return (
-        <div></div>
-    )
+        <div>Vé xe</div>
+    );
 }
 
 export default Ticket

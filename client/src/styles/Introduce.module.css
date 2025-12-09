@@ -1,0 +1,176 @@
+.hero {
+    background: #e9f8fd;
+    padding: 24px 0 40px;
+}
+
+.container {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.left {
+    flex: 1 1 520px;
+}
+
+.right {
+    /* flex: 1 1 520px; */
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 40px;
+    /* move image slightly inward from the right edge */
+}
+
+h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 56px;
+    line-height: 1.1;
+    margin: 8px 0 20px;
+}
+
+.orange {
+    color: #ff9900;
+}
+
+.blue {
+    color: #1295DB;
+}
+
+.follow {
+    margin-top: 16px;
+}
+
+.follow p {
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.brands {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.brands img {
+    height: 36px;
+}
+
+.image {
+    max-width: 92%;
+    height: auto;
+}
+
+@media (max-width: 992px) {
+    h1 {
+        font-size: 44px;
+    }
+
+    .container {
+        gap: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    h1 {
+        font-size: 36px;
+    }
+}
+
+/* ===== System section (below hero) ===== */
+.systemSection {
+    background: #fff;
+    padding: 40px 0 40px;
+}
+
+.systemContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.systemHeader h2 {
+    font-size: 36px;
+    line-height: 1.25;
+    margin: 0 0 10px;
+}
+
+.brand {
+    color: #ff9900;
+}
+
+.systemHeader p {
+    color: #444;
+    max-width: 980px;
+    margin: 0 0 20px;
+}
+
+.systemCards {
+    display: flex;
+    gap: 24px;
+    align-items: stretch;
+}
+
+.systemCardBlue {
+    flex: 1 1 0;
+    background: linear-gradient(180deg, #0aa0ea 0%, #00b2ff 100%);
+    color: #fff;
+    border-radius: 12px;
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.systemCardBlue p {
+    opacity: 0.95;
+}
+
+.systemCardBlue h5 {
+    margin-top: 16px;
+    font-size: 18px;
+}
+
+.systemCardOutline {
+    width: 320px;
+    border: 2px solid #ff9900;
+    border-radius: 12px;
+    padding: 22px;
+    background: #fff;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.statLine {
+    margin: 6px 0;
+}
+
+.statNumber {
+    color: #ff9900;
+    font-weight: 800;
+    font-size: 28px;
+    margin-right: 6px;
+}
+
+.linkBlue {
+    color: #1295DB;
+}
+
+@media (max-width: 1024px) {
+    .systemCards {
+        flex-direction: column;
+    }
+
+    .systemCardOutline {
+        width: 100%;
+    }
+}
