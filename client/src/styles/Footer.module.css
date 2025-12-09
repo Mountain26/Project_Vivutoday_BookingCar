@@ -1,0 +1,85 @@
+.footer {
+    background-color: #FFF7F5;
+    padding: 72px 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #2b2b2b;
+    border-top: 1px solid #eee;
+}
+
+.footer-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px 32px;
+    max-width: 1240px;
+    margin: 0 auto 40px auto;
+    padding: 0 32px;
+}
+
+.footer-section:first-of-type .footer-column:nth-child(1) { flex: 0 0 calc(50% - 22px); }
+.footer-section:first-of-type .footer-column:nth-child(2) { flex: 0 0 calc(25% - 22px); }
+.footer-section:first-of-type .footer-column:nth-child(3) { flex: 0 0 calc(25% - 22px); }
+
+.footer-section:nth-of-type(2) .footer-column { flex: 0 0 calc(25% - 24px); }
+
+.footer-section:nth-of-type(3) .footer-column { flex: 0 0 calc(25% - 24px); }
+
+.footer-column {
+    min-width: 220px;
+}
+
+.footer-column h4 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 18px;
+    color: #2b2b2b;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    font-size: 15px;
+    line-height: 2.0;
+    margin-bottom: 8px;
+    color: #767676;
+}
+
+.footer-column ul li a {
+    text-decoration: none;
+    color: #666;
+    transition: color 0.3s ease;
+}
+
+.footer-column ul li a:hover {
+    color: #1295DB;
+}
+
+.certifications ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.certifications ul li img {
+    height: 40px;
+    width: auto;
+}
+
+@media (max-width: 992px) {
+    .footer-section { gap: 24px 28px; padding: 0 28px; }
+    .footer-section:first-of-type .footer-column:nth-child(1) { flex: 0 0 100%; }
+    .footer-section:first-of-type .footer-column:nth-child(2),
+    .footer-section:first-of-type .footer-column:nth-child(3) { flex: 0 0 calc(50% - 14px); }
+    .footer-section:nth-of-type(2) .footer-column,
+    .footer-section:nth-of-type(3) .footer-column { flex: 0 0 calc(50% - 14px); }
+}
+
+@media (max-width: 560px) {
+    .footer { padding: 48px 0; }
+    .footer-section { gap: 18px 0; padding: 0 20px; }
+    .footer-section .footer-column { flex: 0 0 100%; }
+    .footer-column h4 { font-size: 16px; margin-bottom: 14px; }
+    .footer-column ul li { font-size: 14px; line-height: 1.9; margin-bottom: 10px; }
+}

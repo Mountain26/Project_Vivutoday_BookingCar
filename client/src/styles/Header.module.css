@@ -1,0 +1,138 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 0;
+    background-color: #ffffff;
+    z-index: 3;
+}
+
+.background {
+    background-color: #1295DB;
+}
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+    height: 30px;
+    color: white;
+    width: 80%;
+    margin: auto;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: auto;
+    padding: 0 10px;
+    position: relative;
+}
+
+.this-page {
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #1190D4;
+}
+
+.navbar .logo {
+    height: 60px;
+    width: 100px;
+}
+
+.nav-links {
+    width: 70%;
+}
+
+.nav-links ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+    font-weight: 700;
+    color: #1295DB;
+    flex-wrap: wrap;
+}
+
+.nav-links ul li {
+    padding: 8px 12px;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.nav-links ul li:hover {
+    background-color: #1295DB;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.nav-links ul li.this-page {
+    background-color: #1190D4;
+    color: white;
+}
+
+.nav-links ul li.this-page:hover {
+    background-color: #1190D4;
+}
+
+.navbar .search-icon {
+    background-color: #FFA901;
+    padding: 5px;
+    border-radius: 5px;
+    width: 31px;
+    text-align: center;
+}
+.contact {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.hamburger-menu {
+    display: none;
+    cursor: pointer;
+    color: #1295DB;
+}
+
+/* Responsive toggles for nav */
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
+.mobile-search {
+    display: none;
+}
+
+.desktop-search {
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .hamburger-menu {
+        display: block;
+    }
+    .nav-links ul {
+        gap: 6px;
+        font-size: 14px;
+    }
+    .desktop-search {
+        display: none;
+    }
+    .mobile-search {
+        display: block;
+    }
+}
