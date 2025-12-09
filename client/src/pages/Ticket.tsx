@@ -1,13 +1,12 @@
-import React from 'react'
+import React from "react";
 
-interface Props {}
+type Props = object;
 
 function Ticket(props: Props) {
-    const {} = props
+  // eslint-disable-next-line no-empty-pattern
+  const {} = props;
 
-    return (
-        <div></div>
-    )
+  return <div></div>;
 }
 
-export default Ticket
+export default Ticket;
