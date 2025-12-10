@@ -6,10 +6,9 @@
 }
 
 header {
-    /* No shadow and no sticky positioning */
-    box-shadow: none;
-    position: static;
-    top: auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 0;
     background-color: #ffffff;
     z-index: 3;
 }
@@ -200,7 +199,6 @@ header {
     }
 
     .menuToggle:checked ~ .navbar .navWrapper .overlay {
-        display: block;
         position: fixed;
         top: 0;
         left: 0;
@@ -208,6 +206,7 @@ header {
         height: 100%;
         background: rgba(0, 0, 0, 0.5);
         z-index: 998;
+        display: none;
     }
 
     /* Mobile sidebar menu */
