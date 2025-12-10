@@ -97,9 +97,9 @@ h1 {
 }
 
 .systemHeader h2 {
-    font-size: 36px;
+    font-size: 40px;
     line-height: 1.25;
-    margin: 0 0 10px;
+    margin: 0 0 12px;
 }
 
 .brand {
@@ -109,21 +109,29 @@ h1 {
 .systemHeader p {
     color: #444;
     max-width: 980px;
-    margin: 0 0 20px;
+    margin: 0 0 22px;
+    font-size: 20px;
+    line-height: 1.8;
+    letter-spacing: 0.2px;
+    text-align: justify;
 }
 
 .systemCards {
     display: flex;
     gap: 24px;
     align-items: stretch;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .systemCardBlue {
-    flex: 1 1 0;
+    flex: 0 0 354px;
+    width: 354px;
+    height: 371px;
     background: linear-gradient(180deg, #0aa0ea 0%, #00b2ff 100%);
     color: #fff;
-    border-radius: 12px;
-    padding: 22px;
+    border-radius: 15px;
+    padding: 24px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -131,18 +139,25 @@ h1 {
 
 .systemCardBlue p {
     opacity: 0.95;
+    font-size: 20px;
+    line-height: 1.9;
+    letter-spacing: 0.2px;
+    text-align: justify;
 }
 
 .systemCardBlue h5 {
     margin-top: 16px;
-    font-size: 18px;
+    font-size: 20px;
 }
 
 .systemCardOutline {
-    width: 320px;
-    border: 2px solid #ff9900;
-    border-radius: 12px;
-    padding: 22px;
+    flex: 0 0 354px;
+    width: 354px;
+    height: 371px;
+    border: 3px solid #ff9900;
+    font-size: 20px;
+    border-radius: 15px;
+    padding: 24px;
     background: #fff;
     color: #333;
     display: flex;
@@ -163,6 +178,7 @@ h1 {
 
 .linkBlue {
     color: #1295DB;
+    font-size: 18px;
 }
 
 @media (max-width: 1024px) {
@@ -173,4 +189,166 @@ h1 {
     .systemCardOutline {
         width: 100%;
     }
+}
+
+/* ===== Reasons section (three-column with mascot center) ===== */
+.reasonsSection {
+    background: #fff;
+    padding: 30px 0 40px;
+}
+
+.reasonsContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.reasonsTitle {
+    font-size: 32px;
+    line-height: 1.3;
+    margin: 0 0 18px;
+}
+
+.reasonsGrid {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.reasonsCol {
+    flex: 1 1 0;
+    max-width: 360px;
+}
+
+.reasonsCenter {
+    flex: 0 0 280px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.reasonsMascot {
+    max-width: 100%;
+    height: auto;
+}
+
+.reasonItem {
+    margin-bottom: 18px;
+}
+
+.reasonHeading {
+    color: #ff9900;
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.reasonItem p {
+    color: #444;
+    font-size: 16px;
+    line-height: 1.8;
+    letter-spacing: 0.2px;
+    text-align: justify;
+}
+
+@media (max-width: 1024px) {
+    .reasonsGrid {
+        flex-direction: column;
+    }
+
+    .reasonsCenter {
+        order: -1;
+        margin-bottom: 12px;
+    }
+
+    .reasonsCol {
+        max-width: none;
+    }
+}
+
+/* ===== Center customer section ===== */
+.centerCustomerSection {
+    background: #fff;
+    padding: 24px 0 40px;
+}
+
+.centerCustomerContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.centerCustomerTitle {
+    color: #ff9900;
+    font-size: 32px;
+    text-align: center;
+    margin: 0 0 12px;
+}
+
+.centerCustomerTextWrap p {
+    color: #444;
+    font-size: 16px;
+    line-height: 1.9;
+    letter-spacing: 0.2px;
+    text-align: justify;
+    margin-bottom: 12px;
+}
+
+/* ===== Contact section ===== */
+.contactSection {
+    background: #fff;
+    padding: 24px 0 56px;
+}
+
+.contactContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.contactTitle {
+    color: #ff9900;
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 18px;
+}
+
+.contactForm {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.contactForm label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.contactForm label span {
+    color: #666;
+    font-weight: 600;
+}
+
+.contactForm input {
+    height: 48px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 0 12px;
+    font-size: 15px;
+}
+
+.contactSubmit {
+    align-self: center;
+    background: #1295DB;
+    color: #fff;
+    border: none;
+    width: 353px;
+    height: 48px;
+    line-height: 32px;
+    border-radius: 6px;
+    padding: 12px 28px;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
 }
