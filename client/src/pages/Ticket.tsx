@@ -4,11 +4,9 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import banner from "../assets/img/vivu-phone-banner.png.png";
 
-interface Props {}
 
-function Ticket(props: Props) {
-  const {} = props;
 
+function Ticket() {
   const [from, setFrom] = useState<string>("");
   const [to, setTo] = useState<string>("");
   const [date, setDate] = useState<string>("");
