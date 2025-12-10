@@ -2,6 +2,7 @@ import { useState } from "react";
 import styles from "../styles/Ticket.module.css";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import banner from "../assets/img/vivu-phone-banner.png.png";
 
 interface Props {}
 
@@ -14,7 +15,6 @@ function Ticket(props: Props) {
   const [sortTime, setSortTime] = useState<string>("Giờ đi");
   const [sortPrice, setSortPrice] = useState<string>("Mức giá");
 
-  // mock trips data for UI
   const trips = [
     {
       id: 1,
@@ -51,17 +51,6 @@ function Ticket(props: Props) {
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0_D0BJFheKtxLDNnobOuU4YZiWrGP_l72Ew&s",
     },
   ];
-
-  const onSearch = () => {
-    // Placeholder search action. Replace with router/navigation or API call.
-    // eslint-disable-next-line no-alert
-    alert(
-      `Tìm chuyến xe\nĐiểm khởi hành: ${from || "—"}\nĐiểm đến: ${
-        to || "—"
-      }\nNgày khởi hành: ${date || "—"}`
-    );
-  };
-
   return (
     <div>
       <Header />
@@ -108,7 +97,7 @@ function Ticket(props: Props) {
             />
           </div>
 
-          <button className={styles.searchBtn} onClick={onSearch}>
+          <button className={styles.searchBtn}>
             <i
               className="fa-solid fa-magnifying-glass"
               style={{ color: "#ffffff" }}
@@ -256,9 +245,7 @@ function Ticket(props: Props) {
                     </div>
                   </div>
                   <button className={styles.bookButton}>
-                    <i
-                      className="fa-solid fa-bus-simple"
-                    ></i>
+                    <i className="fa-solid fa-bus-simple"></i>
                     Chọn xe
                   </button>
                 </div>
@@ -266,6 +253,9 @@ function Ticket(props: Props) {
             ))}
           </section>
         </div>
+      </div>
+      <div className={styles.bannerContainer}>
+        <img src={banner} alt="" className={styles.bannerImage} />
       </div>
       <Footer />
     </div>
