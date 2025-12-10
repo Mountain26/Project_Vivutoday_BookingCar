@@ -6,9 +6,10 @@
 }
 
 header {
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    position: sticky;
-    top: 0;
+    /* No shadow and no sticky positioning */
+    box-shadow: none;
+    position: static;
+    top: auto;
     background-color: #ffffff;
     z-index: 3;
 }
@@ -95,6 +96,7 @@ header {
     width: 31px;
     text-align: center;
 }
+
 .contact {
     display: flex;
     align-items: center;

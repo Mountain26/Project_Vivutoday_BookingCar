@@ -248,17 +248,15 @@ function Ticket() {
                     <div className={styles.detailsExpanded}>
                       <div className={styles.tabs}>
                         <div
-                          className={`${styles.tab} ${
-                            activeTab === "image" ? styles.activeTab : ""
-                          }`}
+                          className={`${styles.tab} ${activeTab === "image" ? styles.activeTab : ""
+                            }`}
                           onClick={() => setActiveTab("image")}
                         >
                           Hình ảnh
                         </div>
                         <div
-                          className={`${styles.tab} ${
-                            activeTab === "cancel" ? styles.activeTab : ""
-                          }`}
+                          className={`${styles.tab} ${activeTab === "cancel" ? styles.activeTab : ""
+                            }`}
                           onClick={() => setActiveTab("cancel")}
                         >
                           Phí hủy
@@ -363,5 +361,4 @@ function Ticket() {
     </div>
   );
 }
-
 export default Ticket;
