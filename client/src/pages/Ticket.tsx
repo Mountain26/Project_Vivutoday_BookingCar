@@ -1,3 +1,11 @@
+<<<<<<< HEAD
+const Ticket = () => {
+    return (
+        <div></div>
+    );
+};
+
+=======
 import { useState } from "react";
 import styles from "../styles/Ticket.module.css";
 import Header from "../components/Header";
@@ -361,4 +369,5 @@ function Ticket() {
     </div>
   );
 }
+>>>>>>> af623d02db9fff0d5ac0ffad714e75a67f8f8144
 export default Ticket;
