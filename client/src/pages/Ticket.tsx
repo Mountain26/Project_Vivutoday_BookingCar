@@ -14,6 +14,17 @@ function Ticket(props: Props) {
   const [date, setDate] = useState<string>("");
   const [sortTime, setSortTime] = useState<string>("Giờ đi");
   const [sortPrice, setSortPrice] = useState<string>("Mức giá");
+  const [expandedTrip, setExpandedTrip] = useState<number | null>(null);
+  const [activeTab, setActiveTab] = useState<string>("image");
+
+  const toggleDetails = (tripId: number) => {
+    if (expandedTrip === tripId) {
+      setExpandedTrip(null);
+    } else {
+      setExpandedTrip(tripId);
+      setActiveTab("cancel"); // Default to cancel policy tab
+    }
+  };
 
   const trips = [
     {
@@ -227,8 +238,101 @@ function Ticket(props: Props) {
 
                   <div className={styles.information}>
                     <div className={styles.note}>{trip.dateNote}</div>
-                    <a className={styles.infoLink}>Thông tin chi tiết</a>
+                    <a
+                      className={styles.infoLink}
+                      onClick={() => toggleDetails(trip.id)}
+                    >
+                      Thông tin chi tiết
+                    </a>
                   </div>
+
+                  {expandedTrip === trip.id && (
+                    <div className={styles.detailsExpanded}>
+                      <div className={styles.tabs}>
+                        <div
+                          className={`${styles.tab} ${
+                            activeTab === "image" ? styles.activeTab : ""
+                          }`}
+                          onClick={() => setActiveTab("image")}
+                        >
+                          Hình ảnh
+                        </div>
+                        <div
+                          className={`${styles.tab} ${
+                            activeTab === "cancel" ? styles.activeTab : ""
+                          }`}
+                          onClick={() => setActiveTab("cancel")}
+                        >
+                          Phí hủy
+                        </div>
+                      </div>
+
+                      {activeTab === "image" && (
+                        <div className={styles.imageSection}>
+                          <img
+                            src={trip.image}
+                            alt="Hình ảnh xe"
+                            className={styles.detailImage}
+                          />
+                        </div>
+                      )}
+
+                      {activeTab === "cancel" && (
+                        <div className={styles.cancelPolicy}>
+                          <table className={styles.policyTable}>
+                            <thead>
+                              <tr>
+                                <th>Hủy từ</th>
+                                <th>Đến trước</th>
+                                <th>Phí hủy</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>Sau khi đặt</td>
+                                <td>
+                                  06:45
+                                  <br />
+                                  25/11/2024
+                                </td>
+                                <td>
+                                  0%
+                                  <br />
+                                  giá trị đơn hàng
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  06:45
+                                  <br />
+                                  25/11/2024
+                                </td>
+                                <td>Giờ khởi hành</td>
+                                <td>
+                                  100%
+                                  <br />
+                                  giá trị đơn hàng
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <div className={styles.policyNote}>
+                            <div
+                              style={{
+                                fontWeight: "bold",
+                                marginBottom: "6px",
+                              }}
+                            >
+                              Ghi chú:
+                            </div>
+                            Phí hủy sẽ được tính trên giá gốc, không giảm trừ
+                            khuyến mãi hoặc giảm giá; đồng thời không vượt quá
+                            số tiền quý khách đã thanh toán.
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  )}
                 </div>
 
                 <div className={styles.priceSection}>
