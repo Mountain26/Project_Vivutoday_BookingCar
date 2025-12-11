@@ -6,9 +6,6 @@
 }
 
 header {
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    position: sticky;
-    top: 0;
     background-color: #ffffff;
     z-index: 3;
 }
@@ -95,6 +92,7 @@ header {
     width: 31px;
     text-align: center;
 }
+
 .contact {
     display: flex;
     align-items: center;
@@ -105,6 +103,40 @@ header {
     display: none;
     cursor: pointer;
     color: #1295DB;
+    font-size: 24px;
+    z-index: 1;
+}
+
+/* Menu toggle hidden checkbox */
+.menuToggle {
+    display: none;
+}
+
+/* Nav wrapper for overlay */
+.navWrapper {
+    display: contents;
+}
+
+/* Overlay for mobile menu */
+.overlay {
+    display: none;
+}
+
+/* Mobile header with search */
+.mobileHeader {
+    display: none;
+    padding: 20px;
+    background: #1295DB;
+    align-items: center;
+    gap: 10px;
+}
+
+.mobileSearch {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
 }
 
 /* Responsive toggles for nav */
@@ -122,17 +154,130 @@ header {
 }
 
 @media (max-width: 768px) {
+    .navbar .logo {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    .top-bar {
+        font-size: 12px;
+        padding: 0 10px;
+        width: 100%;
+    }
+
+    .contact {
+        font-size: 11px;
+    }
+
+    .navbar {
+        width: 100%;
+        height: 60px;
+        padding: 10px;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        position: relative;
+    }
+
     .hamburger-menu {
         display: block;
+        order: 2;
     }
+
+    .navbar > div:first-child {
+        order: 1;
+    }
+
+    .navWrapper {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        order: 3;
+    }
+
+    /* Show overlay when menu is checked */
+    .menuToggle:checked ~ .navbar .navWrapper {
+        pointer-events: auto;
+    }
+
+    .menuToggle:checked ~ .navbar .navWrapper .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1;
+        display: block;
+    }
+
+    /* Mobile sidebar menu */
+    .menuToggle:checked ~ .navbar .navWrapper .nav-links {
+        transform: translateX(0);
+        color: #1190D4;
+        z-index: 2;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 70%;
+        max-width: 300px;
+        background: #fff;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        z-index: 999;
+        flex-direction: column;
+        align-items: flex-start;
+        overflow-y: auto;
+    }
+
+    .mobileHeader {
+        display: flex;
+        width: 100%;
+        background-color: #1190D4;
+    }
+
+    .nav-links{
+        background-color: #1190D4;
+    }
+
     .nav-links ul {
-        gap: 6px;
-        font-size: 14px;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        gap: 0;
+        margin-top: 20px;
     }
+
+    .nav-links ul li {
+        width: 100%;
+        padding: 0;
+        border-bottom: 1px solid #eee;
+        border-radius: 0;
+    }
+
+    .nav-links ul li label {
+        display: block;
+        width: 100%;
+        padding: 15px 20px;
+        cursor: pointer;
+        color: white;
+    }
+
+    .nav-links ul li:hover {
+        border-radius: 0;
+    }
+
     .desktop-search {
         display: none;
     }
+
     .mobile-search {
-        display: block;
+        display: none;
     }
 }
