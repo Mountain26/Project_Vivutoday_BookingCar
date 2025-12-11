@@ -4,7 +4,6 @@ import logo from "../assets/img/logoxin.png";
 function Header() {
   return (
     <header>
-      <input type="checkbox" id="menu-toggle" className={styles.menuToggle} />
       <div className={styles.background}>
         <div className={styles["top-bar"]}>
           <div>
@@ -26,57 +25,30 @@ function Header() {
         </div>
       </div>
       <div className={styles.navbar}>
-        <div style={{ width: "10%" }}>
+        <div style={{ width: "20%" }}>
           <img src={logo} alt="logo" className={styles.logo} />
         </div>
         <label htmlFor="menu-toggle" className={styles["hamburger-menu"]}>
-          <i className="fa-solid fa-bars" style={{ color: "#1190D4" }}></i>
+          <i className="fa-solid fa-bars"></i>
         </label>
-
-        <div className={styles.navWrapper}>
-          <label htmlFor="menu-toggle" className={styles.overlay}></label>
-          <div className={styles["nav-links"]}>
-            <div className={styles.mobileHeader}>
-              <input
-                type="text"
-                placeholder="Tìm kiếm"
-                className={styles.mobileSearch}
-              />
+        <div className={styles["nav-links"]}>
+          <ul>
+            <li className={styles["this-page"]}>TRANG CHỦ</li>
+            <li>GIỚI THIỆU</li>
+            <li>THÔNG TIN NHÀ XE</li>
+            <li>BẾN XE</li>
+            <li>TUYẾN ĐƯỜNG</li>
+            <li>KIỂM TRA VÉ</li>
+          </ul>
+          <div
+            className={`${styles["search-icon"]} ${styles["mobile-search"]}`}
+          >
+            <a href="">
               <i
                 className="fa-solid fa-magnifying-glass"
-                style={{ color: "#FFA901" }}
+                style={{ color: "#ffffff" }}
               ></i>
-            </div>
-            <ul>
-              <li className={styles["this-page"]}>
-                <label htmlFor="menu-toggle">TRANG CHỦ</label>
-              </li>
-              <li>
-                <label htmlFor="menu-toggle">GIỚI THIỆU</label>
-              </li>
-              <li>
-                <label htmlFor="menu-toggle">THÔNG TIN NHÀ XE</label>
-              </li>
-              <li>
-                <label htmlFor="menu-toggle">BẾN XE</label>
-              </li>
-              <li>
-                <label htmlFor="menu-toggle">TUYẾN ĐƯỜNG</label>
-              </li>
-              <li>
-                <label htmlFor="menu-toggle">KIỂM TRA VÉ</label>
-              </li>
-            </ul>
-            <div
-              className={`${styles["search-icon"]} ${styles["mobile-search"]}`}
-            >
-              <a href="">
-                <i
-                  className="fa-solid fa-magnifying-glass"
-                  style={{ color: "#ffffff" }}
-                ></i>
-              </a>
-            </div>
+            </a>
           </div>
         </div>
         <div style={{ width: "15%" }}>
