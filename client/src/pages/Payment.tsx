@@ -1,8 +1,9 @@
+import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import styles from "../styles/Payment.module.css";
 
- type SeatType = "normal" | "vip";
+type SeatType = "normal" | "vip";
 
 type SeatInfo = {
   id: string;
@@ -53,12 +54,22 @@ const Payment = () => {
 
   const seats = state?.selectedSeats ?? [];
   const amount = state?.totalAmount ?? 0;
+  const [status, setStatus] = useState(state?.payment.status ?? "Chờ thanh toán");
+  const [hasConfirmed, setHasConfirmed] = useState(false);
+
+  const statusToneClass = hasConfirmed ? styles.statusReview : styles.statusPending;
 
   const handleConfirm = () => {
+    if (hasConfirmed) {
+      return;
+    }
+
+    setStatus("Chờ nhà xe xác nhận");
+    setHasConfirmed(true);
     Swal.fire({
       icon: "success",
       title: "Cảm ơn bạn",
-      text: "Chúng tôi sẽ kiểm tra trạng thái thanh toán ngay khi có thể.",
+      text: "Chúng tôi sẽ kiểm tra thanh toán và liên hệ trong thời gian sớm nhất.",
       confirmButtonText: "Đóng",
     });
   };
@@ -94,6 +105,26 @@ const Payment = () => {
             <p><strong>Biển số:</strong> {state.tripInfo.busPlate}</p>
             <p><strong>Điểm đón:</strong> {state.passengerInfo.pickUpStation}</p>
             <p><strong>Điểm trả:</strong> {state.passengerInfo.dropOffStation}</p>
+          </div>
+        </section>
+
+        <section className={styles.infoCard}>
+          <header>
+            <h2>Thông tin liên hệ</h2>
+          </header>
+          <div className={styles.passengerDetails}>
+            <div>
+              <span className={styles.detailLabel}>Họ và tên</span>
+              <strong>{state.passengerInfo.fullName}</strong>
+            </div>
+            <div>
+              <span className={styles.detailLabel}>Số điện thoại</span>
+              <strong>{state.passengerInfo.phone}</strong>
+            </div>
+            <div>
+              <span className={styles.detailLabel}>Email</span>
+              <strong>{state.passengerInfo.email ?? "-"}</strong>
+            </div>
           </div>
         </section>
 
@@ -135,12 +166,17 @@ const Payment = () => {
             alt={`QR ${state.payment.provider}`}
             className={styles.qrImage}
           />
-          <div className={styles.statusBox}>
+          <div className={`${styles.statusBox} ${statusToneClass}`}>
             <span>Trạng thái</span>
-            <strong>{state.payment.status}</strong>
+            <strong>{status}</strong>
           </div>
           <div className={styles.actions}>
-            <button type="button" className={styles.confirmButton} onClick={handleConfirm}>
+            <button
+              type="button"
+              className={styles.confirmButton}
+              onClick={handleConfirm}
+              disabled={hasConfirmed}
+            >
               Tôi đã thanh toán
             </button>
             <button type="button" className={styles.backButton} onClick={handleBack}>

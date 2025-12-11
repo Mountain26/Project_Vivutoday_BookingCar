@@ -79,6 +79,11 @@ const SeatSelection = () => {
   });
   const [formError, setFormError] = useState("");
 
+  const trimmedPhone = phone.trim();
+  const trimmedFullName = fullName.trim();
+  const trimmedEmail = email.trim();
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
   const selectedSeats = useMemo(
     () =>
       selectedSeatIds
@@ -103,9 +108,23 @@ const SeatSelection = () => {
       maximumFractionDigits: 0,
     });
 
-  const phoneError = !phone.trim() ? "Vui lòng nhập số điện thoại." : "";
-  const fullNameError = !fullName.trim() ? "Vui lòng nhập họ tên." : "";
-  const emailError = email.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())
+  const phoneError = !trimmedPhone
+    ? "Vui lòng nhập số điện thoại."
+    : !/^\d+$/.test(trimmedPhone)
+    ? "Số điện thoại chỉ được chứa chữ số."
+    : trimmedPhone.length !== 10
+    ? "Số điện thoại phải gồm 10 chữ số."
+    : "";
+
+  const fullNameError = !trimmedFullName
+    ? "Vui lòng nhập họ tên."
+    : trimmedFullName.length < 3
+    ? "Họ và tên phải có ít nhất 3 ký tự."
+    : "";
+
+  const emailError = !trimmedEmail
+    ? "Vui lòng nhập email."
+    : !emailPattern.test(trimmedEmail)
     ? "Email không hợp lệ."
     : "";
 
@@ -151,11 +170,11 @@ const SeatSelection = () => {
     const missingFields: string[] = [];
 
     if (phoneError) {
-      missingFields.push("số điện thoại");
+      missingFields.push("số điện thoại hợp lệ");
     }
 
     if (fullNameError) {
-      missingFields.push("họ tên");
+      missingFields.push("họ tên hợp lệ");
     }
 
     if (selectedSeats.length > MAX_SELECTION) {
@@ -178,7 +197,9 @@ const SeatSelection = () => {
 
     setFormError("");
 
-    const sanitizedEmail = email.trim();
+    const sanitizedPhone = trimmedPhone;
+    const sanitizedFullName = trimmedFullName;
+    const sanitizedEmail = trimmedEmail;
 
     navigate("/payment", {
       state: {
@@ -191,9 +212,9 @@ const SeatSelection = () => {
         totalAmount,
         prices: seatPrices,
         passengerInfo: {
-          phone,
-          fullName,
-          email: sanitizedEmail || undefined,
+          phone: sanitizedPhone,
+          fullName: sanitizedFullName,
+          email: sanitizedEmail,
           pickUpStation,
           dropOffStation,
         },
