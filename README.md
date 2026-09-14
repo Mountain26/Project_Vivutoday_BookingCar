@@ -100,13 +100,11 @@ Xin chào! Mình là **Nguyễn Đình Sơn**, một CODER và SEOER đầy nhi�
 
 ## 🔥 Dự án nổi bật (Featured Projects)
 
-<div align="center">
 
 - 🚗 **[Project_Vivutoday_BookingCar](https://github.com/Mountain26/Project_Vivutoday_BookingCar)**
 - 🎬 **[CinemaBookingManager](https://github.com/Mountain26/CinemaBookingManager)**
-- ⚙️ **[Final_Project-Java_Service_NguyenDinhSon](https://github.com/Mountain26/Final_Project-Java_Service_NguyenDinhSon)**
-- 🏦 **[FinalProjectC_Eng_KS24B_NguyenDinhSon_BankAccount](https://github.com/Mountain26/FinalProjectC_Eng_KS24B_NguyenDinhSon_BankAccount)**
-</div>
+- ⚙️ **[Project-Java_Service](https://github.com/Mountain26/Final_Project-Java_Service_NguyenDinhSon)**
+- 🏦 **[ProjectC_BankAccount](https://github.com/Mountain26/FinalProjectC_Eng_KS24B_NguyenDinhSon_BankAccount)**
 
 <br>
 
